@@ -23,8 +23,5 @@ public class Alphabet
         return plain.substring(s,n) + plain.substring(0,s);//this is the shifted alphabet
     }
 }
-<<<<<<< HEAD
 
 // Stuff and more and more and mormoromorormoermeormore 
-=======
->>>>>>> ba88349f0dffe9fb54728138636de026aa9d2ef9
