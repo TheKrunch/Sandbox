@@ -1,10 +1,10 @@
-# This program says hello and asks for my name.
-print('Hello world!')
+# This program says hello and asks for the user's name.
+print('Hello World!')
 print('What is your name?')     # ask for their name
-myName = input()
-print('It is good to meet you, ' + myName + '.')
+myName = input()    # Capture name input into myName variable
+print('It is good to meet you, ' + myName + '.')    # uses myName to be more specific
 print('The length of your name is:')
-print(len(myName))
+print(len(myName))  # uses len() to find the lenghth of myName
 print('What is your age?')  # ask for their age
-myAge = input()
-print('You will be ' + str(int(myAge) + 1) + ' in a year.')
+myAge = input()     # Capture age input into myAge variable
+print('You will be ' + str(int(myAge) + 1) + ' in one year.')     # adds one to myAge
