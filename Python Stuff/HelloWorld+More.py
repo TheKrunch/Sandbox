@@ -7,4 +7,8 @@ print('The length of your name is:')
 print(len(myName))  # uses len() to find the lenghth of myName
 print('What is your age?')  # ask for their age
 myAge = input()     # Capture age input into myAge variable
-print('You will be ' + str(int(myAge) + 1) + ' in one year.')     # adds one to myAge
+print('You will be ' + str(int(myAge) + 1) + ' in one year.')     # adds one to myAge and prints it
+
+# I want to add datetime stuff to this program
+# It could make for more accurate and specific outputs with myAge
+# Thinking about using datetime class
