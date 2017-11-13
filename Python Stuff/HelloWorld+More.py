@@ -6,7 +6,16 @@ print('It is good to meet you, ' + myName + '.')    # uses myName to be more spe
 print('The length of your name is:')
 print(len(myName))  # uses len() to find the lenghth of myName
 print('What is your age?')  # ask for their age
-myAge = input()     # Capture age input into myAge variable
+
+while True:     # checks to make sure age is an integer
+    try:
+        myAge = int(input())     # Capture age input into myAge variable
+    except ValueError:
+        print('Please enter an age:')
+
+    else:
+        break
+
 print('You will be ' + str(int(myAge) + 1) + ' in one year.')     # adds one to myAge and prints it
 
 # I want to add datetime stuff to this program
