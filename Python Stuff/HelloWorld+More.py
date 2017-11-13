@@ -1,4 +1,6 @@
 # This program says hello and asks for the user's name.
+import time
+from datetime import date
 print('Hello World!')
 print('What is your name?')     # ask for their name
 myName = input()    # Capture name input into myName variable
@@ -21,3 +23,6 @@ print('You will be ' + str(int(myAge) + 1) + ' in one year.')     # adds one to 
 # I want to add datetime stuff to this program
 # It could make for more accurate and specific outputs with myAge
 # Thinking about using datetime class
+today = date.today()
+print("Today's date in ISO 8601 format:")
+print(today)
