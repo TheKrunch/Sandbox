@@ -13,12 +13,12 @@ while contin:
     print("5) Square root");
     print("6) Clear");
     print("0) Exit");
-    
+
     opt = int(input("What is your option? "));
 
     if opt == 0:
         contin = False;
-        
+
     elif opt == 1:
         add = float(input("Enter a number: "));
         accum = accum + add;
@@ -44,5 +44,5 @@ while contin:
     else:
         print("Illegal option: " + str(opt));
 
-        
+
 print("Program finished");

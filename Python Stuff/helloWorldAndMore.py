@@ -26,3 +26,4 @@ print('You will be ' + str(int(myAge) + 1) + ' in one year.')     # adds one to 
 today = date.today()
 print("Today's date in ISO 8601 format:")
 print(today)
+# next idea is to ask for their birthday and tell how many days till their next one
