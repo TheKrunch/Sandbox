@@ -1,9 +1,12 @@
 /**
- * Write a description of class Alphabet here.
+ * This program creates a caesar cipher shifted alphabet.
  * 
  * @author Matt Scalzo 
- * @version 1.0 - 12/17/15
+ * @version 2.0 - 1/17/20
  */
+
+import java.util.Scanner;
+
 public class Alphabet
 {
     private String plain;
@@ -22,4 +25,17 @@ public class Alphabet
         
         return plain.substring(s,n) + plain.substring(0,s);//this is the shifted alphabet
     }
+
+
+public static void main(String[] args)
+{
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter how much you want to shift by: ");
+    
+    int number = input.nextInt();
+    input.close();
+    Alphabet alph = new Alphabet(number);
+
+    System.out.println("Your new alphabet is: " + alph.shifted);
+}
 }
