@@ -1,5 +1,5 @@
 /**
- * This program creates a caesar cipher shifted alphabet.
+ * Prints a caeser ciphered alphabet with the user's input as the shift.
  * 
  * @author Matt Scalzo 
  * @version 2.0 - 1/17/20
