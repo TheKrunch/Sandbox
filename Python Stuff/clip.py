@@ -58,16 +58,20 @@ print("\"{}\"".format(filePath), "\n")
 
 clipSecs = getFileDuration(filePath)                             # Sets clipSecs = to the duration of the clip in seconds
 # This prints the output from the above command.
-print("The duration of \"{}{}\" is: {} seconds".format(filePath.stem, filePath.suffix, clipSecs))
+#print("The duration of \"{}{}\" is: {} seconds".format(filePath.stem, filePath.suffix, clipSecs))
 
-# The ffmpeg command to encode to audio will look something like this
-# ffmpeg -ss (DURATION - ELAPSED) -t ELAPSED -i FILENAMEHERE OUTPUTFILENAME
-# this took about .326s according to the Ubuntu time command, so the bottle neck now is the obs file save time...(~1.8 seconds)
+
 clipLength = 5
 clipStart = clipSecs - clipLength
 
+print("Making clip...\n")
+
 # Command to clip the last clipLength seconds of audio off the newest file.
 args = ['ffmpeg', '-ss', str(clipStart), '-t', str(clipLength), '-i', str(filePath), (str(dirToSave) + "\\" + filePath.stem + ".mp3")]
-ffmpegProc = subprocess.run(args)  # This runs the command in args.
+ffmpegProc = subprocess.run(args, capture_output=True)  # This runs the command in args.
 
-print("should be done")
+print("Check \"{}\" for audio clip.\n".format(dirToSave))
+
+# This takes about ~0.5 seconds according to the bash's time command, the OBS file save time is about ~1.8 seconds.
+# TODO: Implement keyboard module so I just have to press a button
+# TODO: Turn the actual clipping into a method so it can be called by keyboard input
