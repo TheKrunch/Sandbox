@@ -1,4 +1,4 @@
-import os, time, subprocess
+import os, subprocess
 from datetime import datetime
 from pathlib import Path
 
