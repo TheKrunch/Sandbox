@@ -3,8 +3,8 @@ from datetime import datetime
 from pathlib import Path
 
 
-def getNewestFilePath(pathToDir):                               # This gets the news file in the path specified
-    with os.scandir(pathToDir) as pathDir:
+def getNewestFilePath(pathToDir):                               # This gets the newest file in pathToDir
+    with os.scandir(pathToDir) as pathDir:                      # Creates iterator of all files in pathToDir
         newestFile = ''                                         # Where the newest file path will be stored
         tempTime = 0                                            # Where the current newests file's time since the epoch is stored
 
@@ -13,12 +13,12 @@ def getNewestFilePath(pathToDir):                               # This gets the 
                 curFile = os.stat(file)                         # Gets stats about the file and stores it in curFile
                 creatTime = curFile.st_ctime                    # Gets how much times since the epoch it was when the file was created and stores it in creatTime
 
-                if creatTime > tempTime:
+                if creatTime > tempTime:                        # Only saves the file's path if it newer than previous
                     newestFile = file.path
                     tempTime = creatTime
 
     if newestFile == '' and pathToDir == Path.cwd():
-        raise Exception("No files found in current working directory, please use specify a directory with media files.")
+        raise Exception("No files found in current working directory, please specify a directory with media files.")
     elif newestFile == '':
         print("No files found in specified path, using curent working directory instead...\n")
         return getNewestFilePath(Path.cwd())
