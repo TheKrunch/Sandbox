@@ -4,6 +4,8 @@ from pathlib import Path
 
 
 def getNewestFilePath(pathToDir):                               # This gets the newest file in pathToDir
+    if not pathToDir.exists():
+        raise Exception("The specified path can't be found.")
     with os.scandir(pathToDir) as pathDir:                      # Creates iterator of all files in pathToDir
         newestFile = ''                                         # Where the newest file path will be stored
         tempTime = 0                                            # Where the current newests file's time since the epoch is stored
@@ -17,14 +19,14 @@ def getNewestFilePath(pathToDir):                               # This gets the 
                     newestFile = file.path
                     tempTime = creatTime
 
-    if newestFile == '' and pathToDir == Path.cwd():
-        raise Exception("No files found in current working directory, please specify a directory with media files.")
-    elif newestFile == '':
-        print("No files found in specified path, using curent working directory instead...\n")
-        return getNewestFilePath(Path.cwd())
-    else:
-        return Path(newestFile)                                 # Turns the path string into a Path object
-
+        if newestFile == '' and pathToDir == Path.cwd():
+            raise Exception("No files found in current working directory, please specify a directory with media files.")
+        elif newestFile == '':
+            print("No files found in specified path, using curent working directory instead...\n")
+            return getNewestFilePath(Path.cwd())
+        else:
+            return Path(newestFile)                             # Turns the path string into a Path object
+    
 
 def getFileDuration(pathToFile):
     filePath = str(pathToFile)
@@ -34,7 +36,7 @@ def getFileDuration(pathToFile):
     ffprobeProc = subprocess.run(args, stdout=subprocess.PIPE)  # This runs the command in args.
     
     if ffprobeProc.returncode > 0:
-        raise Exception("File found is not recognized by ffprobe, please only use directories media files.")
+        raise Exception("File found is not recognized by ffprobe, please only use a directory with media files.")
     else:
         # This converts the output to a float instead of a string
         clipDur = float(ffprobeProc.stdout.decode('utf-8').strip())
