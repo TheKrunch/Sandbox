@@ -61,7 +61,7 @@ clipSecs = getFileDuration(filePath)                             # Sets clipSecs
 #print("The duration of \"{}{}\" is: {} seconds".format(filePath.stem, filePath.suffix, clipSecs))
 
 
-clipLength = 5
+clipLength = 5                                                  # Length of final audio clip from end of video file
 clipStart = clipSecs - clipLength
 
 print("Making clip...\n")
