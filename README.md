@@ -6,5 +6,3 @@ A place to mess around and test things out.
 More specifically, its a place to test out things in different programing languages with some sort of version tracking and redundency if I lose my files. I have been using this for random tutorials and little programs I want to work on. It also gets me into using git, which I hear is kinda important...
 
 ## ¯\\_(ツ)_/¯
-
-This is me adding stuff to test commit config stuff.
