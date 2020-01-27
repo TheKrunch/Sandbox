@@ -4,7 +4,7 @@
 
 int main()
 {
-	std::cout << "Hello World!\n";	// Prints Hello World!
+	std::cout << "Hello World!\n";	// Prints Hello World! to the out stream.
 
 	return 0;
 }
