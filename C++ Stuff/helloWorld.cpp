@@ -5,4 +5,6 @@
 int main()
 {
 	std::cout << "Hello World!\n";	// Prints Hello World!
+
+	return 0;
 }
