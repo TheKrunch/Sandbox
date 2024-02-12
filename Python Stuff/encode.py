@@ -3,12 +3,12 @@ from pathlib import Path
 from datetime import datetime, timedelta
 
  # Converts string to a path object
-inputDir = Path("E:\\MakeMKV DUMP\\DVD")
-outputDir = Path("E:\\MakeMKV DUMP\\DVD\\Out")
+inputDir = Path("E:\\Game Highlights\\OBSRaw\\Nades")
+outputDir = Path("E:\\Game Highlights\\Nades\\Vertigo")
 
 if not inputDir.is_dir():
     print("Input directory can't be found, will try current working directory...")
-    inputDir = os.getcdw()
+    inputDir = os.getcwd()
 
 if not outputDir.is_dir():
     print("Output directory can't be found, will be created in \"{}\".".format(inputDir))
@@ -29,7 +29,7 @@ with os.scandir(inputDir) as direc:
             print("Start time is: " , datetime.now().strftime("%H:%M:%S"))
             
             #args = ['ffmpeg', '-n', '-i', str(inPath), '-vcodec' , 'libx265', '-crf', '26', '-preset', 'fast' (str(outputDir) + "\\" + inPath.stem + 'ENCODED.mp4')]
-            args = ['ffmpeg', '-n', '-i', str(inPath), '-map', '0', '-c:v' , 'libx264', '-crf', '18', '-c:a', 'aac', '-c:s', 'copy', (str(outputDir) + "\\" + inPath.stem + 'ENCODED.mkv')]
+            args = ['ffmpeg', '-n', '-i', str(inPath), '-map', '0', '-c:v' , 'libx264', '-crf', '18', '-c:a', 'aac', '-c:s', 'copy', (str(outputDir) + "\\" + inPath.stem + '.mp4')]
             startTime = time.time()
             ffmpegProc = subprocess.run(args, capture_output=True)
             print("Finished encoding \"{}\", continuing...".format(inPath))
